@@ -86,9 +86,13 @@ class PlayerHand:
             self.value += card_value
             if card.rank["rank"] =="A":
                 holding_ace = True
-                
+
         # If the player is holding an ace and the total value would be over 21, 
         # Ace will equal 1 instead
         if holding_ace and self.value > 21:
             self.value -= 10
+
+    def find_value(self):
+        self.compute_value()
+        return self.value
             
