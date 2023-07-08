@@ -106,7 +106,7 @@ class PlayerHand:
         for index, card in enumerate(self.cards):
 
             # Make dealers hand hidden
-            if index == 0 and self.dealer and not show_dealers_hand:
+            if index == 0 and self.dealer and not show_dealers_hand and not self.black_jack():
                 print("hidden")
             else: 
                 print(card)
