@@ -99,11 +99,18 @@ class PlayerHand:
     def black_jack(self):
         return self.find_value() == 21
 
-    def view_cards(self):
+    def view_cards(self, show_dealers_hand = False):
 
         print(f'''{"Dealer" if self.dealer else "Your"} hand:''')   
-        for card in self.cards:
-            print(card)
+
+        for index, card in enumerate(self.cards):
+
+            # Make dealers hand hidden
+            if index == 0 and self.dealer and not show_dealers_hand:
+                print("hidden")
+            else: 
+                print(card)
+
         # If the player is not the dealer
         if not self.dealer:
             print("Total value:", self.find_value())
