@@ -19,7 +19,25 @@ else:
 cards = []
 # suits and ranks
 suits = ["hearts", "diamonds", "spades", "clubs"]
-ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+
+# assign values to various card ranks
+ranks = [
+        {"rank": "2", "value": "2"},
+        {"rank": "3", "value": "3"},
+        {"rank": "4", "value": "4"},
+        {"rank": "5", "value": "5"},
+        {"rank": "6", "value": "6"},
+        {"rank": "7", "value": "7"},
+        {"rank": "8", "value": "8"},
+        {"rank": "9", "value": "9"},
+        {"rank": "10", "value": "10"},
+        # If the player is dealt a Jack(J), Queen(Q) or King(K), it's value will be 10
+        {"rank": "K", "value": "10"},
+        {"rank": "Q", "value": "10"},
+        {"rank": "J", "value": "10"},
+        # If the player is dealt an Ace, it's value will be 11
+        {"rank": "A", "value": "11"},
+    ]
 
 for suit in suits:
     for rank in ranks:
@@ -38,18 +56,7 @@ def dealCards(number):
     return cards_dealt
 
 shuffle()
-cards_dealt = dealCards(2)
-card = cards_dealt[0]
-rank = card[1]
-print(cards_dealt)
+card = dealCards(1)[0]
 
-# assign values to various card ranks
-# If the player is dealt an Ace, it's value will be 11
-if rank == "A":
-    value = 11
-# If the player is dealt a Jack(J), Queen(Q) or King(K), it's value will be 10
-elif rank == "J" or rank == "Q" or rank == "K":
-    value = 10
-else:
-    value = rank
+print(card)
 
