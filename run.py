@@ -4,7 +4,7 @@ import random
 print("Welcome to my Black Jack Game!")
 # instructions
 
-user_input = input("Have you ever played Black Jack before? (Y/N):")
+user_input = input("Have you ever played Black Jack before? (Y/N):\n")
 
 if user_input.lower() == "y":
     print("Great! Let's begin.")
@@ -77,3 +77,10 @@ class PlayerHand:
 
     def attach_card(self, card_list):
         self.cards.extend(card_list)
+
+    def compute_value(self):
+        self.value = 0
+        for card in self.cards:
+            card_value = int(card.rank["value"])
+            self.value += card_value
+            
