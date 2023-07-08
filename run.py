@@ -43,3 +43,13 @@ card = cards_dealt[0]
 rank = card[1]
 print(cards_dealt)
 
+# assign values to various card ranks
+# If the player is dealt an Ace, it's value will be 11
+if rank == "A":
+    value = 11
+# If the player is dealt a Jack(J), Queen(Q) or King(K), it's value will be 10
+elif rank == "J" or rank == "Q" or rank == "K":
+    value = 10
+else:
+    value = rank
+
