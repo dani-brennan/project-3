@@ -14,6 +14,14 @@ elif user_input.lower() == "n":
 else:
     print('Please type Y or N')
 
+
+class Card:
+    def __init__(self, suit, rank):
+        self.suit = suit
+        self.rank = rank
+    def __str__(self):
+        return f'A {self.rank["rank"]} of {self.suit}'
+
 # deck of cards
 class DeckofCards:
     def __init__(self):
