@@ -1,3 +1,11 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+# welcome message
+
+# instructions
+
+# deck of cards
+
+cards = []
+# suits and ranks
+suits = ["hearts", "diamonds", "spades", "clubs"]
+ranks = ["A", "2", "3", "4", "5", "6","7", "8", "9", "10", "J", "Q", "K"]
+
