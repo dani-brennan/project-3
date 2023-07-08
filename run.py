@@ -46,13 +46,17 @@ class DeckofCards:
 
     # shuffle the deck
     def shuffle(self):
-        random.shuffle(self.cards)
+        # only shuffle is there is more than one card
+        if len(self.cards) > 1:
+            random.shuffle(self.cards)
 
     # deal cards
     def dealCards(self, number):
         cards_dealt = []
         for x in range(number):
-            card = self.cards.pop()
-            cards_dealt.append(card)
+            # if the length of cards is greater than 0, add card to cards dealt
+            if len(self.cards) > 0:
+                card = self.cards.pop()
+                cards_dealt.append(card)
         return cards_dealt
 
