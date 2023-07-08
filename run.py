@@ -50,7 +50,7 @@ class DeckofCards:
 
         for suit in suits:
             for rank in ranks:
-                self.cards.append([suit, rank])
+                self.cards.append(Card(suit, rank))
 
     # shuffle the deck
     def shuffle(self):
@@ -68,3 +68,12 @@ class DeckofCards:
                 cards_dealt.append(card)
         return cards_dealt
 
+# 
+class PlayerHand:
+    def __init__(self, dealer = False):
+        self.cards = []
+        self.value = 0
+        self.dealer = dealer
+
+    def attach_card(self, card_list):
+        self.cards.extend(card_list)
