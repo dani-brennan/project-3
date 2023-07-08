@@ -95,4 +95,16 @@ class PlayerHand:
     def find_value(self):
         self.compute_value()
         return self.value
-            
+
+    def black_jack(self):
+        return self.find_value() == 21
+
+    def view_cards(self):
+
+        print(f'''{"Dealer" if self.dealer else "Your"} hand:''')   
+        for card in self.cards:
+            print(card)
+        # If the player is not the dealer
+        if not self.dealer:
+            print("Total value:", self.find_value())
+            print()
