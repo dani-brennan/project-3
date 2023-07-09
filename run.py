@@ -152,3 +152,27 @@ class PlayerHand:
         if not self.dealer:
             print("Total value:", self.find_value())
             print()
+
+class Game
+    def play(self):
+    
+        while game_start == True:
+            deck = DeckofCards()
+            deck.shuffle()
+
+            players_hand = PlayerHand()
+            dealers_hand = PlayerHand(dealer = True)
+
+            for i in range(2):
+                players_hand.attach_card(deck.deal(1))
+                dealers_hand.attach_card(deck.deal(1))
+            
+            print("~" * 6)
+
+            players_hand.view_cards()
+            dealers_hand.view_cards()
+            
+
+
+
+
