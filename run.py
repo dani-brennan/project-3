@@ -1,19 +1,36 @@
 import random
+import sys
+import time
+
+def print_slower(input_str):
+    for c in input_str:
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(0.08)
+    sys.stdout.write('\n')
 
 # welcome message
-print("Welcome to my Black Jack Game!")
-# instructions
+def game_intro():
+    print_slower("Welcome to Black Jack.")
+    print('What is your name?')
+    x = input()
+    print('Hello, ' + x)
 
-user_input = input("Have you ever played Black Jack before? (Y/N):\n")
+    userAnswer = None 
 
-if user_input.lower() == "y":
-    print("Great! Let's begin.")
+    while userAnswer not in ("y", "n"): 
+        userAnswer = input("Would you like to see the instructions on how to play? ")
 
-elif user_input.lower() == "n":
-    print("Game Instructions")
-else:
-    print('Please type Y or N')
+        if userAnswer == "y": 
+            # Show the player how to play
+            print_slower("Game Instructions")
+        elif userAnswer == "n": 
+            # Start Game
+            print_slower("Game starting...")
+        else: 
+            print("Please enter yes or no.") 
 
+game_intro()
 
 class Card:
     def __init__(self, suit, rank):
