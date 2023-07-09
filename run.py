@@ -172,30 +172,41 @@ class Game
             players_hand.view_cards()
             dealers_hand.view_cards()
         
-        def check_for_win(self, players_hand, dealers_hand):
+        def check_for_win(self, players_hand, dealers_hand, game_over = False):
+            if not game_over:
+                # If the total value of the players cards is over 21, player loses
+                if players_hand.find_value() > 21:
+                    print_slower("Bust! Dealer wins.")
+                    return True
+                # If the total value of the dealers cards is over 21, dealer loses
+                elif dealers_hand.find_value() > 21:
+                    print_slower("You win! Dealer has bust.")
+                    return True
+                
+                # If player has a total card value of 21, player wins
+                elif players_hand.black_jack():
+                    print_slower("Black Jack! You win!")
+                    return True
+                # If dealer has a total card value of 21, dealer wins
+                elif dealers_hand.black_jack():
+                    print_slower("You lose! Dealer has Black Jack.")
+                    return True
+                # If both players have a total card value of 21, it's a tie
+                elif dealers_hand.black_jack() and players_hand.black_jack():
+                    print_slower("It's a tie! You both have Black Jack.")
+                    return True
+            else:
 
-            # If the total value of the players cards is over 21, player loses
-            if players_hand.find_value() > 21:
-                print_slower("Bust! Dealer wins.")
+                # If the players card value is more that the dealers card value
+                if players_hand.find_value() > dealers_hand.find_value():
+                    print_slower("You win!")
+                # If the dealers card value is more that the players card value
+                elif players_hand.find_value() < dealers_hand.find_value():
+                    print_slower("You lose!")
+                # If the players card value is the same as the dealers card value
+                elif players_hand.find_value() == dealers_hand.find_value():
+                    print_slower("It's a tie!")
                 return True
-            # If the total value of the dealers cards is over 21, dealer loses
-            elif dealers_hand_hand.find_value() > 21:
-                print_slower("You win! Dealer has bust.")
-                return True
-            
-            # If player has a total card value of 21, player wins
-            elif players_hand.black_jack():
-                print_slower("Black Jack! You win!")
-                return True
-            # If dealer has a total card value of 21, dealer wins
-            elif dealers_hand.black_jack():
-                print_slower("You lose! Dealer has Black Jack.")
-                return True
-            # If both players have a total card value of 21, it's a tie
-            elif dealers_hand.black_jack() and players_hand.black_jack():
-                print_slower("It's a tie! You both have Black Jack.")
-                return True
-
             return False
 
 
