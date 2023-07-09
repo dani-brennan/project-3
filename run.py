@@ -11,10 +11,13 @@ def print_slower(input_str):
 
 # welcome message
 def game_intro():
+    print("~" * 6)
     print_slower("Welcome to Black Jack.")
-    print('What is your name?')
+    print("~" * 6)
+    print_slower("What is your name?")
     x = input()
-    print('Hello, ' + x)
+    print("~" * 6)
+    print_slower("Nice to meet you, " + x + "! :)")
 
     userAnswer = None 
 
@@ -24,6 +27,23 @@ def game_intro():
         if userAnswer == "y": 
             # Show the player how to play
             print_slower("Game Instructions")
+            print("~" * 8)
+            
+            ready_to_play = False
+
+            while ready_to_play == False:
+                ready_to_play = input("Type 'start' when you are ready to start the game.")
+                
+                if ready_to_play == str("start" or "Start"):
+                    ready_to_play = True
+                    # Start Game
+                    print_slower("Game starting...")
+                else:
+                    print("Type 'start' to start the game.")
+                    ready_to_play = False
+                        
+
+
         elif userAnswer == "n": 
             # Start Game
             print_slower("Game starting...")
