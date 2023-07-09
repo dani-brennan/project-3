@@ -185,7 +185,7 @@ class Game:
                     hit_or_stand = input("Please type 'Hit' or 'Stand': ")
 
                 if hit_or_stand in ["Hit", "hit"]:
-                    players_hand.attach_card(deck.dealCards())
+                    players_hand.attach_card(deck.dealCards(1))
                     players_hand.view_cards()
 
             if self.check_for_win(players_hand, dealers_hand):
@@ -195,7 +195,7 @@ class Game:
             dealers_hand_total = dealers_hand.find_value()
 
             while dealers_hand_total < 17:
-                dealers_hand.attach_card(deck.dealCards())
+                dealers_hand.attach_card(deck.dealCards(1))
                 dealers_hand_total = dealers_hand.find_value()
 
             dealers_hand.view_cards(show_dealers_hand=True)
