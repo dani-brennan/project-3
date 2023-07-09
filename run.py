@@ -171,7 +171,38 @@ class Game
 
             players_hand.view_cards()
             dealers_hand.view_cards()
-        
+
+            if self.check_for_win(players_hand, dealers_hand):
+                continue
+            
+            hit_or_stand = ""
+            # While the players hand is less than 21, give the player the choice
+            # to hit or stand
+            while players_hand.find_value() < 21 and choice not in ["Stand", "stand"]:
+                hit_or_stand = input("Would you like to 'Hit' or 'Stand'?: ")
+
+                while hit_or_stand not in ["Hit", "Stand"]:
+                    hit_or_stand = input("Please type 'Hit' or 'Stand': ")
+
+                if hit_or_stand in ["Hit", "hit"]:
+                    players_hand.attach_card(deck.dealCards())
+                    players_hand.view_cards()
+
+            if self.check_for_win(players_hand, dealers_hand):
+                continue
+            
+            players_hand_total = players_hand.find_value()
+            dealers_hand_total = dealers_hand.find_value()
+
+            while dealers_hand_total < 17:
+                dealers_hand.attach_card(deck.dealCards())
+                dealers_hand_total = dealers_hand.find_value()
+
+            dealers_hand.view_cards(show_dealers_hand=True)
+            if self.check_for_win(players_hand, dealers_hand):
+                continue
+            
+
         def check_for_win(self, players_hand, dealers_hand, game_over = False):
             if not game_over:
                 # If the total value of the players cards is over 21, player loses
