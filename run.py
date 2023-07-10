@@ -11,35 +11,44 @@ def print_slower(input_str):
 
 # welcome message
 def game_intro():
-    print("~" * 6)
-    print_slower("Welcome to Black Jack.")
-    print("~" * 6)
-    print_slower("What is your name?")
+    print("<>" * 12)
+    print_slower("WELCOME TO BLACKJACK!")
+    print("<>" * 12)
+    print()
+    print_slower("Dealer: I don't think I've seen you around here before... What's your name?")
     x = input()
-    print("~" * 6)
-    print_slower("Nice to meet you, " + x + "! :)")
+    print("-~" * 12)
+    print_slower("Dealer: Welcome to my table " + x + " :)")
+    print("-~" * 12)
 
+    print()
     userAnswer = None 
 
     while userAnswer not in ("y", "n"): 
-        userAnswer = input("Would you like to see the instructions on how to play? ")
+        userAnswer = input("Dealer: Need me to teach you how to play? ")
 
         if userAnswer == "y": 
             # Show the player how to play
-            print_slower("Game Instructions")
-            print("~" * 8)
-            
+            print_slower("Okay, the rules of Blackjack are..")
+            print("--" * 12)
+            print_slower("Each player gets dealt 2 cards.")
+            print_slower("You can then decide whether to Hit (get another card) or Stand. ")
+            print_slower("To win you must have a higher hand value than me, which must not exceed 21.")
+            print_slower("You'll also win if I have a hand value over 21.")
+            print_slower("If the hand value is worth 21.. you have Blackjack, which wins the game.")
+            print_slower("If the hand value is over 21, player busts.")
+            print("--" * 12)
             ready_to_play = False
 
             while ready_to_play == False:
-                ready_to_play = input("Type 'start' when you are ready to start the game.")
+                ready_to_play = input("Type 'start' to begin.")
                 
                 if ready_to_play == str("start" or "Start"):
                     ready_to_play = True
                     # Start Game
                     print_slower("Game starting...")
                 else:
-                    print("Type 'start' to start the game.")
+                    print("" * 12)
                     ready_to_play = False
                         
 
@@ -57,7 +66,7 @@ class Card:
         self.suit = suit
         self.rank = rank
     def __str__(self):
-        return f'A {self.rank["rank"]} of {self.suit}'
+        return f'> {self.rank["rank"]} of {self.suit}'
 
 # deck of cards
 class DeckofCards:
@@ -181,7 +190,7 @@ class Game:
             while players_hand.find_value() < 21 and hit_or_stand not in ["Stand", "stand"]:
                 hit_or_stand = input("Would you like to 'Hit' or 'Stand'?: ")
 
-                while hit_or_stand not in ["Hit", "Stand"]:
+                while hit_or_stand not in ["Hit", "hit", "Stand", "stand"]:
                     hit_or_stand = input("Please type 'Hit' or 'Stand': ")
 
                 if hit_or_stand in ["Hit", "hit"]:
@@ -250,6 +259,5 @@ class Game:
 
 game = Game()
 game.play()
-
 
 
