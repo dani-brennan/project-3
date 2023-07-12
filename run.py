@@ -12,13 +12,13 @@ def print_slower(input_str):
 # welcome message
 def game_intro():
     print("<>" * 12)
-    print_slower("WELCOME TO BLACKJACK!")
+    #print_slower("WELCOME TO BLACKJACK!")
     print("<>" * 12)
     print()
-    print_slower("Dealer: I don't think I've seen you around here before... What's your name?")
+    #print_slower("Dealer: I don't think I've seen you around here before... What's your name?")
     x = input()
     print("-~" * 12)
-    print_slower("Dealer: Welcome to my table " + x + " :)")
+    #print_slower("Dealer: Welcome to my table " + x + " :)")
     print("-~" * 12)
 
     print()
@@ -41,23 +41,21 @@ def game_intro():
             ready_to_play = False
 
             while ready_to_play == False:
-                ready_to_play = input("Type 'start' to begin.")
+                ready_to_play = input("Type 'start' to begin: ")
                 
                 if ready_to_play == str("start" or "Start"):
                     ready_to_play = True
                     # Start Game
-                    print_slower("Game starting...")
+                    print_slower("The dealer is shuffling the deck...")
                 else:
                     print("" * 12)
                     ready_to_play = False
                         
-
-
         elif userAnswer == "n": 
             # Start Game
-            print_slower("Game starting...")
+            print_slower("The dealer is shuffling the deck...")
         else: 
-            print("Please enter yes or no.") 
+            print("Please enter yes or no: ") 
 
 game_intro()
 
@@ -164,8 +162,18 @@ class PlayerHand:
 
 class Game:
     def play(self):
-        game_start = True
-        while game_start:
+        game_number = 1
+        play_again = True
+
+        while play_again == True:
+            try:
+                play_again = input("Press Enter to continue...")
+            except:
+                print("Please press enter to continue.")
+            
+        while game_number == 1:
+            game_number -= 1
+            
             deck = DeckofCards()
             deck.shuffle()
 
@@ -217,9 +225,8 @@ class Game:
             print_slower("Dealer's Hand: ")
             print(dealers_hand_total)
 
-            self.check_for_win(players_hand, dealers_hand, True)
-        print_slower("Thank you for playing!")
-
+            self.check_for_win(players_hand, dealers_hand, True)  
+       
     def check_for_win(self, players_hand, dealers_hand, game_over = False):
         if not game_over:
             # If the total value of the players cards is over 21, player loses
@@ -259,5 +266,7 @@ class Game:
 
 game = Game()
 game.play()
+
+
 
 
