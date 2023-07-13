@@ -183,8 +183,8 @@ class Game:
             deck = DeckofCards()
             deck.shuffle()
 
-            players_hand = playerHand()
-            dealers_hand = playerHand(dealer = True)
+            players_hand = PlayerHand()
+            dealers_hand = PlayerHand(dealer = True)
 
             for i in range(2):
                 players_hand.attach_card(deck.dealCards(1))
