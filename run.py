@@ -272,16 +272,16 @@ class Game:
 
             # If player has a total card value of 21, player wins
             elif players_hand.black_jack():
-                print("*" * 12)
+                print_slower("*" * 12)
                 print_slower("Black Jack! You win!")
-                print("*" * 12)
+                print_slower("*" * 12)
                 return True
 
             # If dealer has a total card value of 21, dealer wins
             elif dealers_hand.black_jack():
-                print("*" * 12)
+                print_slower("*" * 12)
                 print_slower("You lose! Dealer has Black Jack.")
-                print("*" * 12)
+                print_slower("*" * 12)
                 return True
             # If both players have a total card value of 21, it's a tie
             elif dealers_hand.black_jack() and players_hand.black_jack():
@@ -290,14 +290,14 @@ class Game:
         else:
             # If the players card value is more that the dealers card value
             if players_hand.find_value() > dealers_hand.find_value():
-                print("*" * 12)
+                print_slower("*" * 12)
                 print_slower("You win!")
-                print("*" * 12)
+                print_slower("*" * 12)
             # If the dealers card value is more that the players card value
             elif players_hand.find_value() < dealers_hand.find_value():
-                print("*" * 12)
+                print_slower("*" * 12)
                 print_slower("You lose!")
-                print("*" * 12)
+                print_slower("*" * 12)
             # If the players card value is the same as the dealers card value
             elif players_hand.find_value() == dealers_hand.find_value():
                 print("*" * 12)
