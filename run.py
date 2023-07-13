@@ -112,7 +112,6 @@ class DeckofCards:
                 cards_dealt.append(card)
         return cards_dealt
 
-# 
 class PlayerHand:
     def __init__(self, dealer = False):
         self.cards = []
@@ -162,23 +161,30 @@ class PlayerHand:
 
 class Game:
     def play(self):
-        game_number = 1
+        game_number = 3
         play_again = True
+        score = 0
+        total_games_played = 0
+        player_win = 0
+        print("Playing 3 rounds of Blackjack")
 
         while play_again == True:
             try:
                 play_again = input("Press Enter to continue...")
             except:
                 print("Please press enter to continue.")
-            
-        while game_number == 1:
+
+        while game_number > 0:
             game_number -= 1
+            total_games_played += 1
+            print(f"Game {total_games_played}")
+            score = 0
             
             deck = DeckofCards()
             deck.shuffle()
 
-            players_hand = PlayerHand()
-            dealers_hand = PlayerHand(dealer = True)
+            players_hand = playerHand()
+            dealers_hand = playerHand(dealer = True)
 
             for i in range(2):
                 players_hand.attach_card(deck.dealCards(1))
@@ -225,10 +231,13 @@ class Game:
             print_slower("Dealer's Hand: ")
             print(dealers_hand_total)
 
-            self.check_for_win(players_hand, dealers_hand, True)  
-       
-    def check_for_win(self, players_hand, dealers_hand, game_over = False):
+            self.check_for_win(players_hand, dealers_hand, True)
+
+        print(f"Your score {score} out of {total_games_played} games.")
+
+    def check_for_win(self, players_hand, dealers_hand, game_over = False, player_win = False, score = 7):
         if not game_over:
+            
             # If the total value of the players cards is over 21, player loses
             if players_hand.find_value() > 21:
                 print_slower("Bust! Dealer wins.")
@@ -242,6 +251,7 @@ class Game:
             elif players_hand.black_jack():
                 print_slower("Black Jack! You win!")
                 return True
+            
             # If dealer has a total card value of 21, dealer wins
             elif dealers_hand.black_jack():
                 print_slower("You lose! Dealer has Black Jack.")
@@ -249,9 +259,8 @@ class Game:
             # If both players have a total card value of 21, it's a tie
             elif dealers_hand.black_jack() and players_hand.black_jack():
                 print_slower("It's a tie! You both have Black Jack.")
-                return True
+                return True    
         else:
-
             # If the players card value is more that the dealers card value
             if players_hand.find_value() > dealers_hand.find_value():
                 print_slower("You win!")
@@ -264,9 +273,11 @@ class Game:
             return True
         return False
 
+        while game_over == True or game_number == 3:
+            if player_win == True:
+                score += 1 
+                print(f"{score}")
+
 game = Game()
 game.play()
-
-
-
 
