@@ -31,8 +31,8 @@ def game_intro():
     print()
     userAnswer = None
 
-    while userAnswer not in ("y", "n"):
-        userAnswer = input("Dealer: Need me to teach you how to play? ")
+    while userAnswer not in ("y", "yes", "n", "no"):
+        userAnswer = input("Dealer: Need me to teach you how to play?: ")
 
         if userAnswer == "y":
             # Show the player how to play
@@ -74,14 +74,14 @@ class Card:
         self.rank = rank
 
     def __str__(self):
-        return f'> {self.rank["rank"]} of {self.suit}'
+        return f'> {self.rank["rank"] } {self.suit}'
 
 # deck of cards
 class DeckofCards:
     def __init__(self):
         self.cards = []
         # suits and ranks
-        suits = ["hearts", "diamonds", "spades", "clubs"]
+        suits = ["♥", "♦", "♠", "♣"]
 
         # assign values to various card ranks
         ranks = [
@@ -249,10 +249,7 @@ class Game:
             self.check_for_win(players_hand, dealers_hand, True)
 
         print(f"You played {total_games_played} rounds.")
-        
-        play_again = input("Would you like to play again?")
-
-
+    
         while game_number == 0:
                 play_again = input("Dealer: Would you like to play again?: ")
 
