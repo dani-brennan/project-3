@@ -2,10 +2,6 @@ import random
 import sys
 import time
 
-win_score = 0
-loss_score = 0
-tie_score = 0
-
 
 def print_slower(input_str):
     for c in input_str:
@@ -174,15 +170,6 @@ class PlayerHand:
 
 
 class Game:
-    def score_update(result):
-        # Update score
-        global win_score, tie_score, loss_score
-        if result == "win":
-            win_score += 1
-        elif result == "loss":
-            loss_score += 1
-        else:
-            loss_score += 10000
 
     def play(self):
         game_number = 3
@@ -268,42 +255,34 @@ class Game:
             # If the total value of the players cards is over 21, player loses
             if players_hand.find_value() > 21:
                 print_slower("Bust! Dealer wins.")
-                return "loss"
                 return True
             # If the total value of the dealers cards is over 21, dealer loses
             elif dealers_hand.find_value() > 21:
                 print_slower("You win! Dealer has bust.")
-                return "win"
                 return True
 
             # If player has a total card value of 21, player wins
             elif players_hand.black_jack():
                 print_slower("Black Jack! You win!")
-                return "win"
                 return True
 
             # If dealer has a total card value of 21, dealer wins
             elif dealers_hand.black_jack():
                 print_slower("You lose! Dealer has Black Jack.")
-                return "loss"
                 return True
             # If both players have a total card value of 21, it's a tie
             elif dealers_hand.black_jack() and players_hand.black_jack():
                 print_slower("It's a tie! You both have Black Jack.")
-                return "tie"
                 return True
         else:
             # If the players card value is more that the dealers card value
             if players_hand.find_value() > dealers_hand.find_value():
                 print_slower("You win!")
-                return "win"
             # If the dealers card value is more that the players card value
             elif players_hand.find_value() < dealers_hand.find_value():
                 print_slower("You lose!")
-                return "loss"
             # If the players card value is the same as the dealers card value
             elif players_hand.find_value() == dealers_hand.find_value():
-                return "tie"
                 print_slower("It's a tie!")
             return True
         return False
