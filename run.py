@@ -159,7 +159,7 @@ class PlayerHand:
             # Make dealers hand hidden
             if index == 0 and self.dealer and not show_dealers_hand \
             and not self.black_jack():
-                print("hidden")
+                print("> [hidden]")
             else:
                 print(card)
 
@@ -180,7 +180,7 @@ class Game:
         while game_number > 0:
             game_number -= 1
             total_games_played += 1
-            print(f"Game {total_games_played}")
+            print(f"Game {total_games_played} of 3")
             deck = DeckofCards()
             deck.shuffle()
 
@@ -204,8 +204,9 @@ class Game:
             # player the choice to hit or stand
             while players_hand.find_value() < 21 and hit_or_stand \
             not in ["Stand", "stand"]:
+                print()
                 hit_or_stand = input("Would you like to 'Hit' or 'Stand'?: ")
-
+                print()
                 while hit_or_stand not in ["Hit", "hit", "Stand", "stand"]:
                     hit_or_stand = input("Please type 'Hit' or 'Stand': ")
 
@@ -226,12 +227,16 @@ class Game:
             dealers_hand.view_cards(show_dealers_hand=True)
             if self.check_for_win(players_hand, dealers_hand):
                 continue
-
+            print()
             print_slower("Game Results: ")
             print_slower("Your Hand: ")
-            print(players_hand_total)
+            print_slower(players_hand_total)
+            print()
             print_slower("Dealer's Hand: ")
-            print(dealers_hand_total)
+            print_slower(dealers_hand_total)
+
+            if game_number >= 1:
+                print_slower("The dealer is collecting the cards.")
 
             self.check_for_win(players_hand, dealers_hand, True)
 
@@ -240,7 +245,7 @@ class Game:
         while game_number == 0:
                 play_again = input("Dealer: Would you like to play again?: ")
 
-                while play_again not in ["y", "n"]:
+                while play_again not in ["yes", "y", "no" "n"]:
                     play_again = input("Please type y or no: ")
 
                 if play_again in ["y", "yes"]:
