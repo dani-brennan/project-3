@@ -245,7 +245,7 @@ class Game:
         while game_number == 0:
                 play_again = input("Dealer: Would you like to play again?: ")
 
-                while play_again not in ["yes", "y", "no" "n"]:
+                while play_again not in ["yes", "y", "no", "n"]:
                     play_again = input("Please type y or no: ")
 
                 if play_again in ["y", "yes"]:
@@ -259,21 +259,29 @@ class Game:
 
             # If the total value of the players cards is over 21, player loses
             if players_hand.find_value() > 21:
+                print("*" * 12)
                 print_slower("Bust! Dealer wins.")
+                print("*" * 12)
                 return True
             # If the total value of the dealers cards is over 21, dealer loses
             elif dealers_hand.find_value() > 21:
+                print("*" * 12)
                 print_slower("You win! Dealer has bust.")
+                print("*" * 12)
                 return True
 
             # If player has a total card value of 21, player wins
             elif players_hand.black_jack():
+                print("*" * 12)
                 print_slower("Black Jack! You win!")
+                print("*" * 12)
                 return True
 
             # If dealer has a total card value of 21, dealer wins
             elif dealers_hand.black_jack():
+                print("*" * 12)
                 print_slower("You lose! Dealer has Black Jack.")
+                print("*" * 12)
                 return True
             # If both players have a total card value of 21, it's a tie
             elif dealers_hand.black_jack() and players_hand.black_jack():
@@ -282,13 +290,19 @@ class Game:
         else:
             # If the players card value is more that the dealers card value
             if players_hand.find_value() > dealers_hand.find_value():
+                print("*" * 12)
                 print_slower("You win!")
+                print("*" * 12)
             # If the dealers card value is more that the players card value
             elif players_hand.find_value() < dealers_hand.find_value():
+                print("*" * 12)
                 print_slower("You lose!")
+                print("*" * 12)
             # If the players card value is the same as the dealers card value
             elif players_hand.find_value() == dealers_hand.find_value():
+                print("*" * 12)
                 print_slower("It's a tie!")
+                print("*" * 12)
             return True
         return False
         result = check_for_win(players_hand, dealers_hand)
