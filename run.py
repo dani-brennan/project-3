@@ -68,9 +68,6 @@ def game_intro():
             print("Please enter yes or no: ")
 
 
-game_intro()
-
-
 class Card:
     def __init__(self, suit, rank):
         self.suit = suit
@@ -248,14 +245,26 @@ class Game:
             print(players_hand_total)
             print_slower("Dealer's Hand: ")
             print(dealers_hand_total)
-            result = check_for_win(self, players_hand, dealers_hand)
-            print(result)
-            print(f"Out of {total_games_played} Games you won: {win_score}, lost {loss_score} and tied {tie_score}!")
 
             self.check_for_win(players_hand, dealers_hand, True)
 
-        print(f"Out of {total_games_played} You won: {win_score}, lost: {loss_score} and tied {tie_score}")
+        print(f"You played {total_games_played} rounds.")
+        
+        play_again = input("Would you like to play again?")
 
+
+        while game_number == 0:
+                play_again = input("Dealer: Would you like to play again?: ")
+
+                while play_again not in ["y", "n"]:
+                    play_again = input("Please type y or no: ")
+
+                if play_again in ["y", "yes"]:
+                    game.play()
+                elif play_again in ["n", "no"]:
+                    print_slower("Dealer: Thank you for playing!")
+                    exit()
+    
     def check_for_win(self, players_hand, dealers_hand, game_over=False, player_win=False):
         if not game_over:
 
@@ -301,7 +310,9 @@ class Game:
                 print_slower("It's a tie!")
             return True
         return False
+        result = check_for_win(players_hand, dealers_hand)
+        print(result)
 
-
+game_intro()
 game = Game()
 game.play()
