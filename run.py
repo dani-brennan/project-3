@@ -20,9 +20,9 @@ def game_intro():
     #print_slower("Dealer: I don't think I've seen you around here \
     #before... What's your name?")
     x = input()
-    print("-~" * 12)
+    print("-" * 12)
     #print_slower("Dealer: Welcome to my table " + x + " :)")
-    print("-~" * 12)
+    print("-" * 12)
 
     print()
     userAnswer = None
@@ -35,13 +35,11 @@ def game_intro():
             print_slower("Okay, the rules of Blackjack are..")
             print("--" * 12)
             print_slower("Each player gets dealt 2 cards.")
-            print_slower("You can then decide whether to Hit \
-            (get another card) or Stand. ")
-            print_slower("To win you must have a higher hand value than me, \
-            which must not exceed 21.")
-            print_slower("You'll also win if I have a hand value over 21.")
-            print_slower("If the hand value is worth 21.. \
-            you have Blackjack, which wins the game.")
+            print_slower("You can then decide whether to Hit or Stand.")
+            print_slower("To win you must have a higher hand value than me, " +
+            "which must not exceed 21.")
+            print_slower("If the hand value is worth 21.." +
+            "you have Blackjack, which instantly wins the game.")
             print_slower("If the hand value is over 21, player busts.")
             print("--" * 12)
             ready_to_play = False
@@ -57,7 +55,7 @@ def game_intro():
                     print("" * 12)
                     ready_to_play = False
 
-        elif userAnswer == "n":
+        elif userAnswer == ("no", "n", "N", "No"):
             # Start Game
             print_slower("The dealer is shuffling the deck...")
         else:
@@ -235,8 +233,7 @@ class Game:
             print_slower("Dealer's Hand: ")
             print_slower(dealers_hand_total)
 
-            if game_number >= 1:
-                print_slower("The dealer is collecting the cards.")
+            print_slower("The dealer is collecting the cards.")
 
             self.check_for_win(players_hand, dealers_hand, True)
 
@@ -245,12 +242,12 @@ class Game:
         while game_number == 0:
                 play_again = input("Dealer: Would you like to play again?: ")
 
-                while play_again not in ["yes", "y", "no", "n"]:
-                    play_again = input("Please type y or no: ")
+                while play_again not in ["Y", "y", "N", "n"]:
+                    play_again = input("Please type Y/N: ")
 
-                if play_again in ["y", "yes"]:
+                if play_again in ["y", "Y"]:
                     game.play()
-                elif play_again in ["n", "no"]:
+                elif play_again in ["n", "N"]:
                     print_slower("Dealer: Thank you for playing!")
                     exit()
     
