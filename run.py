@@ -17,18 +17,15 @@ def game_intro():
     print_slower("♠♣  WELCOME TO BLACKJACK! ♥♦")
     print("♥♦♠♣" * 7)
     print()
-    print_slower("Dealer: I don't think I've seen you around here before.. " +
-    "What's your name?")
-    name = input()
-    print("--" * 12)
+    print_slower("Dealer: I don't think I've seen you around here before.. ")
+    name = input("What's your name?: ")
     print_slower("Dealer: Welcome to my table " + name + " :)")
-    print("--" * 12)
-
+    
     print()
     userAnswer = None
 
     while userAnswer not in ("y", "yes", "n", "no"):
-        userAnswer = input("Dealer: Need me to teach you how to play?: ")
+        userAnswer = input("Dealer: Need me to teach you how to play? (Y/N): ")
 
         if userAnswer == "y":
             # Show the player how to play
@@ -55,11 +52,11 @@ def game_intro():
                     print("" * 12)
                     ready_to_play = False
 
-        elif userAnswer == ("no", "n", "N", "No"):
+        elif userAnswer == ("n", "N"):
             # Start Game
             print_slower("The dealer is shuffling the deck...")
         else:
-            print("Please enter yes or no: ")
+            print("Please type Y or N: ")
 
 
 class Card:
@@ -179,6 +176,7 @@ class Game:
             game_number -= 1
             total_games_played += 1
             print(f"Game {total_games_played} of 3")
+            print("--" * 12)
             deck = DeckofCards()
             deck.shuffle()
 
@@ -189,7 +187,7 @@ class Game:
                 players_hand.attach_card(deck.dealCards(1))
                 dealers_hand.attach_card(deck.dealCards(1))
 
-            print("~" * 6)
+            print()
 
             players_hand.view_cards()
             dealers_hand.view_cards()
@@ -226,14 +224,14 @@ class Game:
             if self.check_for_win(players_hand, dealers_hand):
                 continue
             print()
+            print("." * 12)
             print_slower("Game Results: ")
+            print("'" * 12)
             print_slower("Your Hand: ")
-            print_slower(players_hand_total)
+            print(players_hand_total)
             print()
             print_slower("Dealer's Hand: ")
-            print_slower(dealers_hand_total)
-
-            print_slower("The dealer is collecting the cards.")
+            print(dealers_hand_total)
 
             self.check_for_win(players_hand, dealers_hand, True)
 
