@@ -31,8 +31,15 @@ In the future I would like to implement a betting system where the user can choo
 
 <h2>Features</h2>
 This app will begin with displaying the game title and a welcome message and ask the user for their name. The user will also be asked if they would like to learn how to play. The choices will be either yes(Y) or no(N).
+<img src="images/intro.PNG">
 <h3>How to play</h3>
 The aim of this game is to get a score of 21 or a higher score than the computer, as long as it does not go over 21. During each round the player will be given the choice to hit or stand. They can keep hitting until they are bust. If the player gets a blackjack it will result in a win, if the computer gets a blackjack it will result in a loss. If the player and computer obtain the same score, it will result in a tie.
+<img src="images/instructions.PNG">
+After the user is done reading the instructions, they will be prompted to enter start to begin playing.
+<img src="images/game.PNG">
+After the 3 rounds of Blackjack are complete, the user will then be prompted to play again, if they enter N the game will end. If they end Y the game will start over.
+<img src="images/playagain.PNG">
+<img src="images/gameexit.PNG">
 
 <h2>Error Handling</h2>
 If the user does not enter a correct prompt from the selection given, such as Y or N, it will prompt the user again to put in the correct information.
@@ -114,26 +121,27 @@ My code now passes through the validator with no errors.
     </tr>
   </tbody>
 </table>
-
+<h3>Bugs</h3>
+<p>A bug that happened a few times during this project was when a print statement would print indefinitely so I would have to close the terminal and open a new one. It was when I did not write my if/else statements correctly.
+<p>Sometimes prompts would not work so I had to convert the input result to lowercase so it would accept it.</p>
 
 <h3>Unfixed Bugs</h3>
 None that I am aware of.
 
 <h2>Frameworks, Libraries & Programs</h2>
-Gitpod
-GitHub
-Heroku 
-Random - to randomize the cards for every round of Blackjack.
+<p>Gitpod</p>
+<p>GitHub</p>
+<p>Heroku </p>
+<p>Random - to randomize the cards for every round of Blackjack.</p>
 
 <h2>Deployment</h2>
-<li><ul>This app was deployed to Heroku.</ul>
-<ul>After creating an account and logging in, create a new app.</ul>
-<ul>Choose a name and click Create App.</ul>
-<ul>In "Settings" find Config Vars and add KEY = PORT : VALUE = 8000.</ul>
-<ul>Find the Deploy tab and select GitHub under the deployment method.</ul>
-<ul>Select your repository you want deployed and connected to Heroku.</ul>
-<ul>Click deploy</ul>
-</li>
+<p>This app was deployed to Heroku.</p>
+<p>After creating an account and logging in, create a new app.</p>
+<p>Choose a name and click Create App.</p>
+<p>In "Settings" find Config Vars and add KEY = PORT : VALUE = 8000.</p>
+<p>Find the Deploy tab and select GitHub under the deployment method.</p>
+<p>Select your repository you want deployed and connected to Heroku.</p>
+<p>Click deploy</p>
 
 <h2>Credits</h2>
 <li><ul>To learn how to create a basic blackjack game I followed the tutorial by
