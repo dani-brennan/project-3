@@ -14,15 +14,15 @@ def print_slower(input_str):
 # welcome message
 def game_intro():
     print("♥♦♠♣" * 7)
-    print_slower(" ♠♣ WELCOME TO BLACKJACK! ♥♦")
+    print_slower("♠♣  WELCOME TO BLACKJACK! ♥♦")
     print("♥♦♠♣" * 7)
     print()
-    #print_slower("Dealer: I don't think I've seen you around here \
-    #before... What's your name?")
-    x = input()
-    print("-" * 12)
-    #print_slower("Dealer: Welcome to my table " + x + " :)")
-    print("-" * 12)
+    print_slower("Dealer: I don't think I've seen you around here before.. " +
+    "What's your name?")
+    name = input()
+    print("--" * 12)
+    print_slower("Dealer: Welcome to my table " + name + " :)")
+    print("--" * 12)
 
     print()
     userAnswer = None
