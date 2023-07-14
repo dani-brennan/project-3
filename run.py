@@ -19,7 +19,9 @@ def game_intro():
     print()
     print_slower("Dealer: I don't think I've seen you around here before.. ")
     name = input("What's your name?: ")
-    print_slower("Dealer: Welcome to my table " + name + " :)")
+    if name == (""):
+        print("Dealer: Well aren't you mysterious?")
+    else: print_slower("Dealer: Welcome to my table " + name + " :)")
     
     print()
     userAnswer = None
