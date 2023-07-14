@@ -18,39 +18,45 @@ def game_intro():
     print("♥♦♠♣" * 7)
     print()
     print_slower("Dealer: I don't think I've seen you around here before.. ")
-    print()
     name = input("What's your name?: ")
-    print()
     print_slower("Dealer: Welcome to my table " + name + " :)")
+    
     print()
     userAnswer = None
 
-    while userAnswer not in ("y", "n", "Y", "N"):
-        userAnswer = input("Dealer: Need me to teach you how to play? (Y/N): ")
+    while userAnswer not in ("y", "yes", "n", "no"):
+        userAnswer = input("Dealer: Need me to teach you how to play? (Y/N): ").lower()
 
-        if userAnswer.lower() == ("y", "Y"):
-            ready_to_play = False
+        if userAnswer == "y":
             # Show the player how to play
-            print("--" * 12)
             print_slower("Okay, the rules of Blackjack are..")
+            print("--" * 12)
             print_slower("Each player gets dealt 2 cards.")
             print_slower("You can then decide whether to Hit or Stand.")
             print_slower("To win you must have a higher hand value than me, " +
-                         "which must'nt exceed 21.")
-            print_slower("If the hand value is worth 21" +
-                         "you have Blackjack, which instantly wins the game!")
+            "which must not exceed 21.")
+            print_slower("If the hand value is worth 21.." +
+            "you have Blackjack, which instantly wins the game.")
             print_slower("If the hand value is over 21, player busts.")
             print("--" * 12)
-            print_slower("The dealer is shuffling the deck...")
+            ready_to_play = False
 
-            ready_to_play = True
+            while ready_to_play == False:
+                ready_to_play = input("Type 'start' to begin: ")
 
-        elif userAnswer.lower() == ("n", "N"):
+                if ready_to_play == str("start" or "Start"):
+                    ready_to_play = True
+                    # Start Game
+                    print_slower("The dealer is shuffling the deck...")
+                else:
+                    print("" * 12)
+                    ready_to_play = False
+
+        elif userAnswer == ("n", "N"):
             # Start Game
             print_slower("The dealer is shuffling the deck...")
         else:
             print("Please type Y or N: ")
-
 
 class Card:
     def __init__(self, suit, rank):
@@ -232,7 +238,7 @@ class Game:
         print(f"You played {total_games_played} rounds.")
 
         while game_number == 0:
-            play_again = input("Dealer: Would you like to play again? (Y/N): ")
+            play_again = input("Dealer: Would you like to play again? (Y/N): ").lower()
 
             if play_again not in ["Y", "y", "N", "n"]:
                 play_again = input("Please type Y/N: ")
