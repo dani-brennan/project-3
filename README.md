@@ -42,9 +42,12 @@ Validator Testing
 This code was tested by using CI PEP8 Online. 
 
 <h3>Errors Found</h3>
+When I passed my code through the validator I was given a lot of warnings about whitespace. I also had a few lines of code that were too long so I had to seperate them onto a seperate line making sure to correctly indent them.
+
 <img src="images/results.PNG">
 
 <h3>After testing</h3>
+My code now passes through the validator with no errors.
 <img src="images/results_after.PNG">
 
 
@@ -61,7 +64,7 @@ This code was tested by using CI PEP8 Online.
   <tbody>
     <tr>
       <td>Game Area</td>
-      <td>Functions as expected</td>
+      <td>Game starts as expected, prints game title, introduction. </td>
       <td>Pass</td>
     </tr>
     <tr>
@@ -71,7 +74,7 @@ This code was tested by using CI PEP8 Online.
     </tr>
     <tr>
       <td>Cards</td>
-      <td>Prints as excpected, no duplicates and they are randomised each time.</td>
+      <td>Prints as expected, no duplicates and they are randomised each time.</td>
       <td>Pass</td>
     </tr>
     <tr>
