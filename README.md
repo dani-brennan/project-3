@@ -119,6 +119,11 @@ My code now passes through the validator with no errors.
       <td>Functions as expected. People can either enter their name or choose to skip by pressing enter.</td>
       <td>Pass</td>
     </tr>
+    <tr>
+      <td>Game Results</td>
+      <td>Functions as expected.</td>
+      <td>Pass</td>
+    </tr>
   </tbody>
 </table>
 <h3>Bugs</h3>
