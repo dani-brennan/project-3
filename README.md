@@ -1,32 +1,64 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1>Project 3 - Blackjack
+This app is based on the card game Blackjack, also known as 21’s. The aim of the game is to get a score of 21.
 
-Welcome,
+The game lasts 3 rounds, each round the user and dealer(computer) are dealt 2 cards. The user will then be prompted on whether they would like to Hit or Stand. The user's goal is to get a higher score than the dealer, but the card value total must not exceed 21. If the user’s/computer's total card value goes over 21, they bust and they have lost. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+[final screenshots]
 
-## Reminders
+<a href="https://db-project3-c5b4318d6ba5.herokuapp.com/">Link to deployed project</a>
+<h2>Technologies Used</h2>
+Python
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+<h2>User stories </h2>
+<h3>Current User Goals</h3>
+To allow the user to enjoy multiple rounds of Blackjack. Every round is randomised which makes it different for the user on each playthrough.
+<h3>New User Goals</h3>
+To learn how to play Blackjack.
+<h2>Future Goals</h2>
+In the future I would like to implement a betting system where the user can choose the amount they would like to bet before each round.
 
-## Creating the Heroku app
+<h2>Features</h2>
+This app will begin with displaying the game title and a welcome message and ask the user for their name. The user will also be asked if they would like to learn how to play. The choices will be either yes(Y) or no(N).
+<h3>How to play</h3>
+The aim of this game is to get a score of 21 or a higher score than the computer, as long as it does not go over 21. During each round the player will be given the choice to hit or stand. They can keep hitting until they are bust. If the player gets a blackjack it will result in a win, if the computer gets a blackjack it will result in a loss. If the player and computer obtain the same score, it will result in a tie.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+Error Handling
+If the user does not enter a correct prompt from the selection given, such as Y or N, it will prompt the user again to put in the correct information.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+<h2>Testing</h2>
+Validator Testing
+This code was tested by using CI PEP8 Online. 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+<h3>Errors Found</h3>
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
+<h3>After testing</h3>
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
----
+<h2>Manual Testing</h2>
 
-Happy coding!
+
+
+<h3>Unfixed Bugs
+None that I am aware of.
+
+<h2>Frameworks, Libraries & Programs</h2>
+Gitpod
+GitHub
+Heroku 
+Random - to randomize the cards for every round of Blackjack.
+
+<h2>Deployment<h2>
+This app was deployed to Heroku. 
+After creating an account and logging in, create a new app.
+Choose a name and click Create App.
+In "Settings" find Config Vars and add KEY = PORT : VALUE = 8000.
+Find the Deploy tab and select GitHub under the deployment method.
+Select your repository you want deployed and connected to Heroku.
+Click deploy
+
+<h2>Credits</h2>
+To learn how to create a basic blackjack game I followed the tutorial by
+https://www.youtube.com/watch?v=aryte85bt_M. It helped me to understand the logic and really helped me improve my knowledge of Python. 
+I learned how to deploy this project to Heroku by following Code Institute's love_sandwiches walkthrough.

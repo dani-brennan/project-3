@@ -33,16 +33,16 @@ def game_intro():
             print("--" * 12)
             print_slower("Each player gets dealt 2 cards.")
             print_slower("You can then decide whether to Hit or Stand.")
-            print_slower("To win you must have a higher hand value than me, " +
-            "which must not exceed 21.")
-            print_slower("If the hand value is worth 21.." +
-            "you have Blackjack, which instantly wins the game.")
+            print_slower("To win you must have a higher hand value , " +
+            "than me which must not exceed 21.")
+            print_slower("If the hand value is worth 21.. you" +
+            " have Blackjack, which instantly wins the game.")
             print_slower("If the hand value is over 21, player busts.")
             print("--" * 12)
             ready_to_play = False
 
             while ready_to_play == False:
-                ready_to_play = input("Type 'start' to begin: ")
+                ready_to_play = input("Type 'start' to begin: ").lower()
 
                 if ready_to_play == str("start" or "Start"):
                     ready_to_play = True
@@ -53,7 +53,6 @@ def game_intro():
                     ready_to_play = False
 
         elif userAnswer == ("n", "N"):
-            # Start Game
             print_slower("The dealer is shuffling the deck...")
         else:
             print("Please type Y or N: ")
@@ -93,17 +92,19 @@ class DeckofCards:
                 # If the player is dealt an Ace, it's value will be 11
                 {"rank": "A", "value": "11"},
             ]
-
+        # Credit: https://replit.com/@BeauCarnes/blackjack-python
         for suit in suits:
             for rank in ranks:
                 self.cards.append(Card(suit, rank))
 
+    # Credit: https://replit.com/@BeauCarnes/blackjack-python
     # shuffle the deck
     def shuffle(self):
         # only shuffle is there is more than one card
         if len(self.cards) > 1:
             random.shuffle(self.cards)
 
+    # Credit: https://replit.com/@BeauCarnes/blackjack-python
     # deal cards
     def dealCards(self, number):
         cards_dealt = []
@@ -114,7 +115,7 @@ class DeckofCards:
                 cards_dealt.append(card)
         return cards_dealt
 
-
+# Credit: https://replit.com/@BeauCarnes/blackjack-python
 class PlayerHand:
     def __init__(self, dealer=False):
         self.cards = []
@@ -183,25 +184,30 @@ class Game:
             players_hand = PlayerHand()
             dealers_hand = PlayerHand(dealer=True)
 
+            # Credit: https://replit.com/@BeauCarnes/blackjack-python
             for i in range(2):
                 players_hand.attach_card(deck.dealCards(1))
                 dealers_hand.attach_card(deck.dealCards(1))
 
             print()
 
+            # Credit: https://replit.com/@BeauCarnes/blackjack-python
             players_hand.view_cards()
             dealers_hand.view_cards()
 
+            # Credit: https://replit.com/@BeauCarnes/blackjack-python
             if self.check_for_win(players_hand, dealers_hand):
                 continue
 
+            # Credit: https://replit.com/@BeauCarnes/blackjack-python
             hit_or_stand = ""
+            
             # While the players hand is less than 21, give the
             # player the choice to hit or stand
             while players_hand.find_value() < 21 and hit_or_stand \
                     not in ["Stand", "stand"]:
                 print()
-                hit_or_stand = input("Would you like to 'Hit' or 'Stand'?: ")
+                hit_or_stand = input("Would you like to 'Hit' or 'Stand'?: ").lower()
                 print()
                 while hit_or_stand not in ["Hit", "hit", "Stand", "stand"]:
                     hit_or_stand = input("Please type 'Hit' or 'Stand': ")
@@ -210,19 +216,23 @@ class Game:
                     players_hand.attach_card(deck.dealCards(1))
                     players_hand.view_cards()
 
+            # Credit: https://replit.com/@BeauCarnes/blackjack-python
             if self.check_for_win(players_hand, dealers_hand):
                 continue
 
             players_hand_total = players_hand.find_value()
             dealers_hand_total = dealers_hand.find_value()
 
+            # Credit: https://replit.com/@BeauCarnes/blackjack-python
             while dealers_hand_total < 17:
                 dealers_hand.attach_card(deck.dealCards(1))
                 dealers_hand_total = dealers_hand.find_value()
 
+            # Credit: https://replit.com/@BeauCarnes/blackjack-python
             dealers_hand.view_cards(show_dealers_hand=True)
             if self.check_for_win(players_hand, dealers_hand):
                 continue
+
             print()
             print("." * 12)
             print_slower(":Game Results: ")
@@ -252,6 +262,7 @@ class Game:
                 print()
                 exit()
 
+    # Credit: https://replit.com/@BeauCarnes/blackjack-python
     def check_for_win(self, players_hand, dealers_hand, game_over=False,
                       player_win=False):
 
