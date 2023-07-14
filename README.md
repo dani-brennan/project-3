@@ -1,4 +1,4 @@
-<h1>Project 3 - Blackjack<h1>
+<h1>Project 3 - Blackjack</h1>
 This app is based on the card game Blackjack, also known as 21’s. The aim of the game is to get a score of 21.
 
 The game lasts 3 rounds, each round the user and dealer(computer) are dealt 2 cards. The user will then be prompted on whether they would like to Hit or Stand. The user's goal is to get a higher score than the dealer, but the card value total must not exceed 21. If the user’s/computer's total card value goes over 21, they bust and they have lost. 
