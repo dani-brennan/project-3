@@ -3,17 +3,29 @@ This app is based on the card game Blackjack, also known as 21’s. The aim of t
 
 The game lasts 3 rounds, each round the user and dealer(computer) are dealt 2 cards. The user will then be prompted on whether they would like to Hit or Stand. The user's goal is to get a higher score than the dealer, but the card value total must not exceed 21. If the user’s/computer's total card value goes over 21, they bust and they have lost. 
 
-[final screenshots]
+<img src="images/python-amiresponsive.PNG">
 
 <a href="https://db-project3-c5b4318d6ba5.herokuapp.com/">Link to deployed project</a>
 <h2>Technologies Used</h2>
 Python
 
+<h2>Target Audience</h2>
+<ul>
+<li>People who enjoy card games</li> 
+<li>People who are interested in learning how to play Blackjack</li>
+<li>People who have played Blackjack before and want to play it again.</li>
+</ul>
 <h2>User stories </h2>
+<ul>
+  <li>As a player, I want the game to be easy to understand</li>
+  <li>As a player, I want the game to be fun to play</li>
+  <li>As a player, I want to have access to instructions that teach me how to play the game</li>
+</ul>
 <h3>Current User Goals</h3>
 To allow the user to enjoy multiple rounds of Blackjack. Every round is randomised which makes it different for the user on each playthrough.
 <h3>New User Goals</h3>
 To learn how to play Blackjack.
+
 <h2>Future Goals</h2>
 In the future I would like to implement a betting system where the user can choose the amount they would like to bet before each round.
 
@@ -30,14 +42,75 @@ Validator Testing
 This code was tested by using CI PEP8 Online. 
 
 <h3>Errors Found</h3>
-
+<img src="images/results.PNG">
 
 <h3>After testing</h3>
-
+<img src="images/results_after.PNG">
 
 
 <h2>Manual Testing</h2>
-
+<h4>Elements Testing</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Outcome</th>
+      <th>Pass/Fail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Game Area</td>
+      <td>Functions as expected</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>Instructions</td>
+      <td>Entering Y when prompted if you want to learn how to play correctly brings up the game instructions.</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>Cards</td>
+      <td>Prints as excpected, no duplicates and they are randomised each time.</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>Do you want to play again prompt</td>
+      <td>Functions as expected. Y restarts the game and N will exit the game.</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>Hit</td>
+      <td>Functions as expected. Gives the player another card.</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>Stand</td>
+      <td>Functions as expected. The player is not given anymore cards and the winner is determined.</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>User Wins</td>
+      <td>Functions as expected. Follows game rules</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>User Losses</td>
+      <td>Functions as expected. Follows game rules.</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>Tie</td>
+      <td>Functions as expected. If the computer and user have the same value, it results in a tie.</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>Name Prompt</td>
+      <td>Functions as expected. People can either enter their name or choose to skip by pressing enter.</td>
+      <td>Pass</td>
+    </tr>
+  </tbody>
+</table>
 
 
 <h3>Unfixed Bugs</h3>
