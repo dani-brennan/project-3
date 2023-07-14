@@ -22,7 +22,7 @@ This app will begin with displaying the game title and a welcome message and ask
 <h3>How to play</h3>
 The aim of this game is to get a score of 21 or a higher score than the computer, as long as it does not go over 21. During each round the player will be given the choice to hit or stand. They can keep hitting until they are bust. If the player gets a blackjack it will result in a win, if the computer gets a blackjack it will result in a loss. If the player and computer obtain the same score, it will result in a tie.
 
-Error Handling
+<h2>Error Handling</h2>
 If the user does not enter a correct prompt from the selection given, such as Y or N, it will prompt the user again to put in the correct information.
 
 <h2>Testing</h2>
@@ -49,16 +49,18 @@ GitHub
 Heroku 
 Random - to randomize the cards for every round of Blackjack.
 
-<h2>Deployment<h2>
-This app was deployed to Heroku. 
-After creating an account and logging in, create a new app.
-Choose a name and click Create App.
-In "Settings" find Config Vars and add KEY = PORT : VALUE = 8000.
-Find the Deploy tab and select GitHub under the deployment method.
-Select your repository you want deployed and connected to Heroku.
-Click deploy
+<h2>Deployment</h2>
+<li><ul>This app was deployed to Heroku.</ul>
+<ul>After creating an account and logging in, create a new app.</ul>
+<ul>Choose a name and click Create App.</ul>
+<ul>In "Settings" find Config Vars and add KEY = PORT : VALUE = 8000.</ul>
+<ul>Find the Deploy tab and select GitHub under the deployment method.</ul>
+<ul>Select your repository you want deployed and connected to Heroku.</ul>
+<ul>Click deploy</ul>
+</li>
 
 <h2>Credits</h2>
-To learn how to create a basic blackjack game I followed the tutorial by
-https://www.youtube.com/watch?v=aryte85bt_M. It helped me to understand the logic and really helped me improve my knowledge of Python. 
-I learned how to deploy this project to Heroku by following Code Institute's love_sandwiches walkthrough.
+<li><ul>To learn how to create a basic blackjack game I followed the tutorial by
+https://www.youtube.com/watch?v=aryte85bt_M. It helped me to understand the logic and really helped me improve my knowledge of Python. </li>
+<li>I learned how to deploy this project to Heroku by following Code Institute's love sandwiches walkthrough.
+</li>
