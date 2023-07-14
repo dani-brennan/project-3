@@ -18,41 +18,43 @@ def game_intro():
     print("♥♦♠♣" * 7)
     print()
     print_slower("Dealer: I don't think I've seen you around here before.. ")
+    print()
     name = input("What's your name?: ")
+    print()
     print_slower("Dealer: Welcome to my table " + name + " :)")
-    
     print()
     userAnswer = None
 
-    while userAnswer not in ("y", "Y", "n", "N"):
+    while userAnswer not in ("y", "n"):
         userAnswer = input("Dealer: Need me to teach you how to play? (Y/N): ")
 
-        if userAnswer == ("Y", "y"):
+        if userAnswer.lower() == ("y"):
+            ready_to_play = False
             # Show the player how to play
             print("--" * 12)
             print_slower("Okay, the rules of Blackjack are..")
             print_slower("Each player gets dealt 2 cards.")
             print_slower("You can then decide whether to Hit or Stand.")
             print_slower("To win you must have a higher hand value than me, " +
-            "which must'nt exceed 21.")
+                         "which must'nt exceed 21.")
             print_slower("If the hand value is worth 21.." +
-            "you have Blackjack, which instantly wins the game!")
+                         "you have Blackjack, which instantly wins the game!")
             print_slower("If the hand value is over 21, player busts.")
             print("--" * 12)
-            ready_to_play = False
+            
 
-            while ready_to_play == False:
-                ready_to_play = input("Type 'start' to begin: ")
+            
+            ready_to_play = input("Type 'start' to begin: ")
 
-                if ready_to_play == str("start" or "Start"):
-                    ready_to_play = True
-                    # Start Game
-                    print_slower("The dealer is shuffling the deck...")
-                else:
-                    print("" * 12)
-                    ready_to_play = False
+            if ready_to_play.lower() == str("start" or "Start"):
+                ready_to_play = True
+                # Start Game
+                print_slower("The dealer is shuffling the deck...")
+            else:
+                print("" * 12)
+                ready_to_play = False
 
-        elif userAnswer == ("n", "N"):
+        elif userAnswer.lower() == ("n"):
             # Start Game
             print_slower("The dealer is shuffling the deck...")
         else:
@@ -66,6 +68,7 @@ class Card:
 
     def __str__(self):
         return f'> {self.rank["rank"] } {self.suit}'
+
 
 # deck of cards
 class DeckofCards:
@@ -153,7 +156,7 @@ class PlayerHand:
 
             # Make dealers hand hidden
             if index == 0 and self.dealer and not show_dealers_hand \
-            and not self.black_jack():
+                    and not self.black_jack():
                 print("> [hidden]")
             else:
                 print(card)
@@ -199,7 +202,7 @@ class Game:
             # While the players hand is less than 21, give the
             # player the choice to hit or stand
             while players_hand.find_value() < 21 and hit_or_stand \
-            not in ["Stand", "stand"]:
+                    not in ["Stand", "stand"]:
                 print()
                 hit_or_stand = input("Would you like to 'Hit' or 'Stand'?: ")
                 print()
@@ -236,25 +239,26 @@ class Game:
             self.check_for_win(players_hand, dealers_hand, True)
 
         print(f"You played {total_games_played} rounds.")
-    
+
         while game_number == 0:
-                play_again = input("Dealer: Would you like to play again?: ")
+            play_again = input("Dealer: Would you like to play again? (Y/N): ")
 
-                while play_again not in ["Y", "y", "N", "n"]:
-                    play_again = input("Please type Y/N: ")
+            if play_again not in ["Y", "y", "N", "n"]:
+                play_again = input("Please type Y/N: ")
 
-                if play_again in ["y", "Y"]:
-                    game.play()
-                elif play_again in ["n", "N"]:
-                    print("♥♦♠♣" * 7)
-                    print_slower("♠♣   THANKS FOR PLAYING!  ♥♦")
-                    print("♥♦♠♣" * 7)
-                    print()
-                    exit()
-    
-    def check_for_win(self, players_hand, dealers_hand, game_over=False, player_win=False):
+            elif play_again in ["y", "Y"]:
+                game.play()
+            elif play_again in ["n", "N"]:
+                print("♥♦♠♣" * 7)
+                print_slower("♠♣   THANKS FOR PLAYING!  ♥♦")
+                print("♥♦♠♣" * 7)
+                print()
+                exit()
+
+    def check_for_win(self, players_hand, dealers_hand, game_over=False,
+                      player_win=False):
+
         if not game_over:
-
             # If the total value of the players cards is over 21, player loses
             if players_hand.find_value() > 21:
                 print("*" * 12)
@@ -303,6 +307,7 @@ class Game:
                 print("*" * 12)
             return True
         return False
+
 
 game_intro()
 game = Game()
