@@ -20,14 +20,16 @@ def game_intro():
     print_slower("Dealer: I don't think I've seen you around here before.. ")
     name = input("What's your name?: ")
     if name == (""):
-        print("Dealer: Well aren't you mysterious?")
-    else: print_slower("Dealer: Welcome to my table " + name + " :)")
-    
+        print_slower("Dealer: Well aren't you mysterious?")
+    else:
+        print_slower("Dealer: Welcome to my table " + name + " :)")
+
     print()
     userAnswer = None
 
     while userAnswer not in ("y", "yes", "n", "no"):
-        userAnswer = input("Dealer: Need me to teach you how to play? (Y/N): ").lower()
+        userAnswer = input("Dealer: Need me to teach you " +
+                           "how to play? (Y/N): ").lower()
 
         if userAnswer == "y":
             # Show the player how to play
@@ -36,15 +38,15 @@ def game_intro():
             print_slower("Each player gets dealt 2 cards.")
             print_slower("You can then decide whether to Hit or Stand.")
             print_slower("To win you must have a higher hand value, " +
-            "than me which must not exceed 21.")
+                         "than me which must not exceed 21.")
             print_slower("If the hand value is worth 21 you" +
-            " got a Blackjack")
+                         " got a Blackjack")
             print_slower("This instantly wins the game.")
             print_slower("If the hand value is over 21, player busts.")
             print("--" * 12)
             ready_to_play = False
 
-            while ready_to_play == False:
+            while ready_to_play := False:
                 ready_to_play = input("Type 'start' to begin: ").lower()
 
                 if ready_to_play == str("start" or "Start"):
@@ -59,6 +61,7 @@ def game_intro():
             print_slower("The dealer is shuffling the deck...")
         else:
             print("Please type Y or N: ")
+
 
 class Card:
     def __init__(self, suit, rank):
@@ -117,6 +120,7 @@ class DeckofCards:
                 card = self.cards.pop()
                 cards_dealt.append(card)
         return cards_dealt
+
 
 # Credit: https://replit.com/@BeauCarnes/blackjack-python
 class PlayerHand:
@@ -211,7 +215,8 @@ class Game:
             while players_hand.find_value() < 21 and hit_or_stand \
                     not in ["Stand", "stand"]:
                 print()
-                hit_or_stand = input("Would you like to 'Hit' or 'Stand'?: ").lower()
+                hit_or_stand = input("Would you like to 'Hit' or " +
+                                     "'Stand'?: ").lower()
                 print()
                 while hit_or_stand not in ["Hit", "hit", "Stand", "stand"]:
                     hit_or_stand = input("Please type 'Hit' or 'Stand': ")
@@ -252,7 +257,8 @@ class Game:
         print(f"You played {total_games_played} rounds.")
 
         while game_number == 0:
-            play_again = input("Dealer: Would you like to play again? (Y/N): ").lower()
+            play_again = input("Dealer: Would you like to play again? " +
+                               "(Y/N): ").lower()
 
             if play_again not in ["Y", "y", "N", "n"]:
                 play_again = input("Please type Y/N: ")
