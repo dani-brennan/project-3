@@ -13,9 +13,9 @@ def print_slower(input_str):
 
 # welcome message
 def game_intro():
-    print("<>" * 12)
-    #print_slower("WELCOME TO BLACKJACK!")
-    print("<>" * 12)
+    print("♥♦♠♣" * 7)
+    print_slower(" ♠♣ WELCOME TO BLACKJACK! ♥♦")
+    print("♥♦♠♣" * 7)
     print()
     #print_slower("Dealer: I don't think I've seen you around here \
     #before... What's your name?")
@@ -302,8 +302,6 @@ class Game:
                 print("*" * 12)
             return True
         return False
-        result = check_for_win(players_hand, dealers_hand)
-        print(result)
 
 game_intro()
 game = Game()
