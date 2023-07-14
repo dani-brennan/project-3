@@ -24,19 +24,19 @@ def game_intro():
     print()
     userAnswer = None
 
-    while userAnswer not in ("y", "yes", "n", "no"):
+    while userAnswer not in ("y", "Y", "n", "N"):
         userAnswer = input("Dealer: Need me to teach you how to play? (Y/N): ")
 
-        if userAnswer == "y":
+        if userAnswer == ("Y", "y"):
             # Show the player how to play
-            print_slower("Okay, the rules of Blackjack are..")
             print("--" * 12)
+            print_slower("Okay, the rules of Blackjack are..")
             print_slower("Each player gets dealt 2 cards.")
             print_slower("You can then decide whether to Hit or Stand.")
             print_slower("To win you must have a higher hand value than me, " +
-            "which must not exceed 21.")
+            "which must'nt exceed 21.")
             print_slower("If the hand value is worth 21.." +
-            "you have Blackjack, which instantly wins the game.")
+            "you have Blackjack, which instantly wins the game!")
             print_slower("If the hand value is over 21, player busts.")
             print("--" * 12)
             ready_to_play = False
@@ -225,7 +225,7 @@ class Game:
                 continue
             print()
             print("." * 12)
-            print_slower("Game Results: ")
+            print_slower(":Game Results: ")
             print("'" * 12)
             print_slower("Your Hand: ")
             print(players_hand_total)
@@ -246,7 +246,10 @@ class Game:
                 if play_again in ["y", "Y"]:
                     game.play()
                 elif play_again in ["n", "N"]:
-                    print_slower("Dealer: Thank you for playing!")
+                    print("♥♦♠♣" * 7)
+                    print_slower("♠♣   THANKS FOR PLAYING!  ♥♦")
+                    print("♥♦♠♣" * 7)
+                    print()
                     exit()
     
     def check_for_win(self, players_hand, dealers_hand, game_over=False, player_win=False):
