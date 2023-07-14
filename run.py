@@ -25,10 +25,10 @@ def game_intro():
     print()
     userAnswer = None
 
-    while userAnswer not in ("y", "n"):
+    while userAnswer not in ("y", "n", "Y", "N"):
         userAnswer = input("Dealer: Need me to teach you how to play? (Y/N): ")
 
-        if userAnswer.lower() == ("y"):
+        if userAnswer.lower() == ("y", "Y"):
             ready_to_play = False
             # Show the player how to play
             print("--" * 12)
@@ -37,24 +37,15 @@ def game_intro():
             print_slower("You can then decide whether to Hit or Stand.")
             print_slower("To win you must have a higher hand value than me, " +
                          "which must'nt exceed 21.")
-            print_slower("If the hand value is worth 21.." +
+            print_slower("If the hand value is worth 21" +
                          "you have Blackjack, which instantly wins the game!")
             print_slower("If the hand value is over 21, player busts.")
             print("--" * 12)
-            
+            print_slower("The dealer is shuffling the deck...")
 
-            
-            ready_to_play = input("Type 'start' to begin: ")
+            ready_to_play = True
 
-            if ready_to_play.lower() == str("start" or "Start"):
-                ready_to_play = True
-                # Start Game
-                print_slower("The dealer is shuffling the deck...")
-            else:
-                print("" * 12)
-                ready_to_play = False
-
-        elif userAnswer.lower() == ("n"):
+        elif userAnswer.lower() == ("n", "N"):
             # Start Game
             print_slower("The dealer is shuffling the deck...")
         else:
