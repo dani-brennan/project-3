@@ -33,10 +33,11 @@ def game_intro():
             print("--" * 12)
             print_slower("Each player gets dealt 2 cards.")
             print_slower("You can then decide whether to Hit or Stand.")
-            print_slower("To win you must have a higher hand value , " +
+            print_slower("To win you must have a higher hand value, " +
             "than me which must not exceed 21.")
-            print_slower("If the hand value is worth 21.. you" +
-            " have Blackjack, which instantly wins the game.")
+            print_slower("If the hand value is worth 21 you" +
+            " got a Blackjack")
+            print_slower("This instantly wins the game.")
             print_slower("If the hand value is over 21, player busts.")
             print("--" * 12)
             ready_to_play = False
@@ -176,6 +177,7 @@ class Game:
         while game_number > 0:
             game_number -= 1
             total_games_played += 1
+            print("--" * 12)
             print(f"Game {total_games_played} of 3")
             print("--" * 12)
             deck = DeckofCards()
@@ -201,7 +203,7 @@ class Game:
 
             # Credit: https://replit.com/@BeauCarnes/blackjack-python
             hit_or_stand = ""
-            
+
             # While the players hand is less than 21, give the
             # player the choice to hit or stand
             while players_hand.find_value() < 21 and hit_or_stand \
