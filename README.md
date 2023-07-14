@@ -149,7 +149,7 @@ None that I am aware of.
 <p>Click deploy</p>
 
 <h2>Credits</h2>
-<li><ul>To learn how to create a basic blackjack game I followed the tutorial by
-https://www.youtube.com/watch?v=aryte85bt_M. It helped me to understand the logic and really helped me improve my knowledge of Python. </li>
-<li>I learned how to deploy this project to Heroku by following Code Institute's love sandwiches walkthrough.
-</li>
+<ul><li>To learn how to create a basic blackjack game I followed the tutorial by
+<a href="https://www.youtube.com/watch?v=aryte85bt_M">'Beau'</a> It helped me to understand the logic and really helped me improve my knowledge of Python. </li>
+<li>I learned how to deploy this project to Heroku by following Code Institute's love sandwiches walkthrough.</li>
+</ul>
